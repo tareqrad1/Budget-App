@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Two = () => {
+const ContinuousSlider = () => {
   return (
     <div>Two</div>
   )
 }
 
-export default Two
+export default ContinuousSlider

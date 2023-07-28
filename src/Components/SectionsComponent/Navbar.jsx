@@ -5,8 +5,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import TempleBuddhistIcon from '@mui/icons-material/TempleBuddhist';
-import Buttons from "../Ui/Buttons";
+import TempleBuddhistIcon from "@mui/icons-material/TempleBuddhist";
+import Buttons from "../../Ui/Buttons";
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -27,11 +27,22 @@ function Navbar(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <ElevationScroll {...props} >
+      <ElevationScroll {...props}>
         <AppBar>
-          <Toolbar className="Navbar" sx={{display:"flex", justifyContent:'space-between', alignItems:'center'}}>
-            <Typography variant="h6" component="div" sx={{display:"flex", alignItems:"center",}}>
-              <TempleBuddhistIcon sx={{marginRight:'5px'}} /> Budget App
+          <Toolbar
+            className="Navbar"
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ display: "flex", alignItems: "center" }}
+            >
+              <TempleBuddhistIcon sx={{ marginRight: "5px" }} /> Budget App
             </Typography>
             <Buttons />
           </Toolbar>

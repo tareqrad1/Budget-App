@@ -1,70 +1,25 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import One from '../Pages/One';
-import Two from '../Pages/Two';
+import { Box, Button, Container } from '@mui/material'
+import React, { useState } from 'react'
+import RecipeReviewCard from '../TabsContent/Three'
+import HorizontalLinearStepper from '../TabsContent/TransHeader/One'
+import ContinuousSlider from '../TabsContent/Two'
 
-function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
-
+const Tabs = () => {
+  const [value, setValue] = useState(1);
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+    <>
+      <Container sx={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(130px, 1fr))', gap:'10px'}}>
+        <Button className={`btnTabs ${value === 1 && 'active'}`} variant="outlined" onClick={() => setValue(1)}>Data</Button>
+        <Button className={`btnTabs ${value === 2 && 'active'}`} variant="outlined" onClick={() => setValue(2)}>Income</Button>
+        <Button className={`btnTabs ${value === 3 && 'active'}`} variant="outlined" onClick={() => setValue(3)}>Expense</Button>
+      </Container>
+      <Container>
+        <Box sx={{mt:'30px'}} >
+          {value === 1 ? (<>{<HorizontalLinearStepper />}</>) : value === 2 ? (<>{<ContinuousSlider />}</>) : (<>{<RecipeReviewCard />}</>) }
         </Box>
-      )}
-    </div>
-  );
+      </Container>
+    </>
+  )
 }
 
-CustomTabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-export default function NavTabs() {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-      </Box>
-      <CustomTabPanel value={value} index={0}>
-        <One />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <Two />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        Item Three
-      </CustomTabPanel>
-    </Box>
-  );
-}
+export default Tabs

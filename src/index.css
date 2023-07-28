@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(to right, #121b1a, #1d1a2d);
+  height: 1000vh;
 }
 
 code {
@@ -15,4 +16,21 @@ code {
 
 .Navbar {
   background-image: linear-gradient(to right, #121b1a, #1d1a2d);
+}
+
+.btnTabs {
+  background-image: linear-gradient(45deg, #283334, #303541);
+  border: none !important;
+  color: white !important;
+  padding: 1.5rem !important;
+  text-align: center !important;
+}
+.btnTabs.active {
+  transform: scale(1.1);
+  transform-origin: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  z-index: 111;
+}
+.lists {
+  background-image: linear-gradient(45deg, #202829, #303541);
 }
