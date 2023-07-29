@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useEffect, useReducer, useRef } from 'react'
-import { getTransaction } from '../Api/Transactions.api';
+import { deleteTransaction, getTransaction } from '../Api/Transactions.api';
 
 export const TransContext = createContext(); // used this with useContext and wrap the function Component
 // START FUNCTION
@@ -13,6 +13,9 @@ function reducerFunction(state, action) {
 
       case 'FETCH_ERROR': 
         return { ...state, loading:false, error:action.payload }
+
+        case 'FETCH_STOP': 
+        return { ...state, loading:false,}
 
       default:
         return state
@@ -36,17 +39,29 @@ const TransactionContext = ({children}) => {
       dispatch({type:'FETCH_SUCCESS', payload: Data})
     } catch (error) {
       dispatch({type:'FETCH_ERROR', payload: error.message})
+      dispatch({type:'FETCH_STOP'})
     }
   }, [])
-
+  // useEffect for fetchApiData
   useEffect(() => {
     if(!isMount.current) {
       fetchApiData();
       isMount.current = true; // we call the function once time 
     }
   },[fetchApiData])
+
+  /* deleting functions */
+  const deleteApiData = async (id) => {
+    try {
+      dispatch({type:'FETCH_START'})
+      await deleteTransaction(id);
+      fetchApiData()
+    } catch (error) {
+      dispatch({type:'FETCH_ERROR', payload: error.message})
+    }
+  }
   return (
-    <TransContext.Provider value={{...state}}>
+    <TransContext.Provider value={{...state, deleteApiData}}>
         {children}
     </TransContext.Provider>
   )

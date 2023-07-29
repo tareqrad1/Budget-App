@@ -14,7 +14,7 @@ const Tabs = () => {
         <Button className={`btnTabs ${value === 3 && 'active'}`} variant="outlined" onClick={() => setValue(3)}>Expense</Button>
       </Container>
       <Container>
-        <Box sx={{mt:'30px'}} >
+        <Box sx={{py:'30px'}} >
           {value === 1 ? (<>{<HorizontalLinearStepper />}</>) : value === 2 ? (<>{<ContinuousSlider />}</>) : (<>{<RecipeReviewCard />}</>) }
         </Box>
       </Container>

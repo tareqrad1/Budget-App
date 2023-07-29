@@ -1,9 +1,13 @@
 import { Avatar, Box, Typography, IconButton } from '@mui/material'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import React from 'react'
+import React, { useContext } from 'react'
+import { TransContext } from '../../../context/TransactionContext';
+
 
 const SingleTrans = ({eleData}) => {
+  const {deleteApiData} = useContext(TransContext);
+
   return (
     <Box className='lists' maxWidth="lg" sx={{mt:'10px', display:'flex', justifyContent:'space-between', alignItems:'center', p:'20px'}}>
       <Box sx={{display:'flex', alignItems:'center', gap:'20px'}}>
@@ -21,7 +25,7 @@ const SingleTrans = ({eleData}) => {
         <IconButton>
             <EditIcon sx={{color:'#fff', mr:'1px', bgcolor:'#714fda',borderRadius:'50%', width:'30px', height:30}} />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => deleteApiData(eleData.id)}>
             <DeleteIcon sx={{color:'#fff', bgcolor:'#b22b6a', borderRadius:'50%', width:'30px', height:30}} />
         </IconButton>
       </Box>

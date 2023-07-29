@@ -12,19 +12,6 @@ function Selects(props) {
     setAge(event.target.value);
   };
 
-// resolve
-// const isTrue = React.useRef(true)
-//   React.useEffect(() => {
-//     if(!isTrue.current) {
-//         handleChange();
-
-//         isTrue.current = false;
-//     }
-//   },[])
-
-
-  // console.log(age);
-
   return (
     <Box sx={{ minWidth: 120, textAlign:'center', bgcolor:'#454747', outline:'none' }}>
       <FormControl fullWidth sx={{outline:'none'}}>

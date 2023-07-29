@@ -12,17 +12,9 @@
       "id": 4,
       "title": "Rent",
       "amount": 1000,
-      "type": "income",
+      "type": "expanse",
       "category": "3",
       "date": "2021-10-13"
-    },
-    {
-      "id": 7,
-      "title": "test 2",
-      "amount": "40000",
-      "type": "income",
-      "category": "5",
-      "date": "2022-10-18"
     },
     {
       "id": 8,
@@ -72,7 +64,7 @@
     },
     {
       "id": 2,
-      "name": "Monthly incom"
+      "name": "Monthly income"
     },
     {
       "id": 3,
