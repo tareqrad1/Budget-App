@@ -2,7 +2,7 @@ import React from 'react'
 
 const ContinuousSlider = () => {
   return (
-    <div>Two</div>
+    <h1 style={{color:'white'}}>SOON2...</h1>
   )
 }
 

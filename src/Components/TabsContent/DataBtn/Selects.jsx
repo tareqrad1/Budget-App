@@ -13,16 +13,17 @@ function Selects(props) {
   };
 
 // resolve
-const isTrue = React.useRef(true)
-  React.useEffect(() => {
-    if(!isTrue.current) {
-        handleChange();
-    }
-    isTrue.current = true;
-  },[age])
+// const isTrue = React.useRef(true)
+//   React.useEffect(() => {
+//     if(!isTrue.current) {
+//         handleChange();
+
+//         isTrue.current = false;
+//     }
+//   },[])
 
 
-  console.log(age);
+  // console.log(age);
 
   return (
     <Box sx={{ minWidth: 120, textAlign:'center', bgcolor:'#454747', outline:'none' }}>

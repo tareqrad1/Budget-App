@@ -3,17 +3,17 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import React from 'react'
 
-const SingleTrans = () => {
+const SingleTrans = ({eleData}) => {
   return (
     <Box className='lists' maxWidth="lg" sx={{mt:'10px', display:'flex', justifyContent:'space-between', alignItems:'center', p:'20px'}}>
       <Box sx={{display:'flex', alignItems:'center', gap:'20px'}}>
       <Avatar alt="$ Sharp" src="/static/images/avatar/1.jpg" />
       <Box>
-        <Typography variant="h5" sx={{fontWeight:'bold', color:'white'}}>Salary</Typography>
+        <Typography variant="h5" sx={{fontWeight:'bold', color:'white'}}>{eleData.title}</Typography>
         <Box sx={{display:'flex', alignItems:'center', gap:'5px'}}>
-            <Typography variant="small" color="#ddd">4000$</Typography>
-            <Typography variant="small" color="#ddd">2021-1-01</Typography>
-            <Typography variant="small" color="#ddd">Business</Typography>
+            <Typography variant="small" color="#ddd">{eleData.amount}$</Typography>
+            <Typography variant="small" color="#ddd">{eleData.date}</Typography>
+            <Typography variant="small" color="#ddd">{eleData.type}</Typography>
         </Box>
       </Box>
       </Box>

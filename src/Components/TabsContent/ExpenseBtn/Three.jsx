@@ -1,7 +1,7 @@
 import React from 'react'
 const RecipeReviewCard = () => {
   return (
-    <div>Three</div>
+    <h1 style={{color:'white'}}>SOON3...</h1>
   )
 }
 

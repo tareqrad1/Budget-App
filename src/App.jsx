@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import MainLayout from './Layout/MainLayout'
-import Tabs from './Components/Tabs/Tabs'
-
+import TransactionContext from './context/TransactionContext'
 const App = () => {
   return (
     <>
         <MainLayout />
+        <TransactionContext />
     </>
     
   )

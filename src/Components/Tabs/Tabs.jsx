@@ -1,8 +1,8 @@
 import { Box, Button, Container } from '@mui/material'
 import React, { useState } from 'react'
-import RecipeReviewCard from '../TabsContent/Three'
-import HorizontalLinearStepper from '../TabsContent/TransHeader/One'
-import ContinuousSlider from '../TabsContent/Two'
+import RecipeReviewCard from '../TabsContent/ExpenseBtn/Three'
+import HorizontalLinearStepper from '../TabsContent/DataBtn/TransContent'
+import ContinuousSlider from '../TabsContent/IncomeBtn/Two'
 
 const Tabs = () => {
   const [value, setValue] = useState(1);

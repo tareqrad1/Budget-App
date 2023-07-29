@@ -14,8 +14,8 @@ const TransHeader = () => {
         <Typography variant="h1" sx={{fontWeight:'bold', fontSize:'24px'}}>Recent Transactions</Typography>
         <Box sx={{display:'flex', justifyContent:'space-between',alignItems:'center', gap:'10px'}}>
             <Selects name='sorted by' optionOne= 'data' optionTwo= 'amount' />
-            <Selects name= 'categories' optionOne= 'categories' />
-            <Selects name= 'all' optionOne= 'all' />
+            <Selects name= 'categories' optionOne= 'categories' optionTwo='all this' />
+            <Selects name= 'all' optionOne ='all' optionTwo='all this' />
         </Box>
     </Box>
   )
