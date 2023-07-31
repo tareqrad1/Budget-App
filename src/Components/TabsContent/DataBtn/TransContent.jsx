@@ -4,20 +4,23 @@ import SingleTrans from './SingleTrans'
 import { TransContext } from '../../../context/TransactionContext';
 import Typography from '@mui/material/Typography'
 import { Box, CircularProgress } from '@mui/material';
+import { CatContext } from '../../../context/CategoryContext';
 
 const TransContent = () => {
   const {receiveData, loading, error} = useContext(TransContext);
+  const {data, loading:catLoading} = useContext(CatContext);
   return (
     <>
       <TransHeader />
-      {!loading && receiveData && !error && (
+      
+      {!loading && receiveData && !error && data.length && !catLoading && (
         receiveData.map((eleData) => {
           return (
-            <SingleTrans eleData={eleData} key={eleData.id} />
+            <SingleTrans eleData={eleData} key={eleData.id} data={data} />
           )
         })
       )}
-      {loading && (
+      {loading && catLoading &&(
         <Box sx={{ display: 'flex', justifyContent:'center', alignItems:'center' }}>
           <CircularProgress />
         </Box>

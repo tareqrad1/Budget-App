@@ -14,7 +14,6 @@ const style = {
   backgroundImage: 'linear-gradient(45deg, #283334, #303541)',
   width: 700,
   b: '',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };

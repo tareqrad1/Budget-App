@@ -1,12 +1,22 @@
 import { Avatar, Box, Typography, IconButton } from '@mui/material'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { TransContext } from '../../../context/TransactionContext';
+import Forms from '../../../Form/Forms';
 
 
-const SingleTrans = ({eleData}) => {
+const SingleTrans = ({eleData, data}) => {
   const {deleteApiData} = useContext(TransContext);
+
+  const currentCat = useMemo(() => {
+    const cat = data.find(c => c.id == eleData.category)
+    if(cat && cat.name) {
+      return cat.name
+    }else {
+      return ''
+    }
+  })
 
   return (
     <Box className='lists' maxWidth="lg" sx={{mt:'10px', display:'flex', justifyContent:'space-between', alignItems:'center', p:'20px'}}>
@@ -17,12 +27,12 @@ const SingleTrans = ({eleData}) => {
         <Box sx={{display:'flex', alignItems:'center', gap:'5px'}}>
             <Typography variant="small" color="#ddd">{eleData.amount}$</Typography>
             <Typography variant="small" color="#ddd">{eleData.date}</Typography>
-            <Typography variant="small" color="#ddd">{eleData.type}</Typography>
+            <Typography variant="small" color="#ddd">{currentCat}</Typography>
         </Box>
       </Box>
       </Box>
       <Box>
-        <IconButton>
+        <IconButton onClick={() => <Forms />}>
             <EditIcon sx={{color:'#fff', mr:'1px', bgcolor:'#714fda',borderRadius:'50%', width:'30px', height:30}} />
         </IconButton>
         <IconButton onClick={() => deleteApiData(eleData.id)}>

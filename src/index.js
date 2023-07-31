@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import TransactionContext from './context/TransactionContext';
+import CategoryContext from './context/CategoryContext';
+import AddDataContext from './context/AddDataContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <TransactionContext>
-      <App />
+      <CategoryContext>
+        <AddDataContext>
+          <App />
+        </AddDataContext>
+      </CategoryContext>
     </TransactionContext>
   </React.StrictMode>
 );

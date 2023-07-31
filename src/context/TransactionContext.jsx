@@ -14,8 +14,8 @@ function reducerFunction(state, action) {
       case 'FETCH_ERROR': 
         return { ...state, loading:false, error:action.payload }
 
-        case 'FETCH_STOP': 
-        return { ...state, loading:false,}
+      case 'FETCH_STOP': 
+        return { ...state, loading:false }
 
       default:
         return state
@@ -29,14 +29,14 @@ const TransactionContext = ({children}) => {
     loading: false,
     error: null
   }
-  const [state, dispatch] = useReducer(reducerFunction, initState);
+  const [state, dispatch] = useReducer(reducerFunction, initState); //Start The Hook
   const isMount = useRef(false);
   
   const fetchApiData = useCallback(async () => {
     dispatch({type:'FETCH_START'})
     try {
       const Data = await getTransaction()
-      dispatch({type:'FETCH_SUCCESS', payload: Data})
+      dispatch({type:'FETCH_SUCCESS', payload: Data}) // Data comes from api 
     } catch (error) {
       dispatch({type:'FETCH_ERROR', payload: error.message})
       dispatch({type:'FETCH_STOP'})
@@ -61,7 +61,7 @@ const TransactionContext = ({children}) => {
     }
   }
   return (
-    <TransContext.Provider value={{...state, deleteApiData}}>
+    <TransContext.Provider value={{...state, deleteApiData, fetchApiData}}>
         {children}
     </TransContext.Provider>
   )
