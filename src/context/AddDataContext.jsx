@@ -1,11 +1,11 @@
-import React, { createContext, useEffect } from 'react'
+import React, { createContext, useContext } from 'react'
 import axiosApi from '../Api/AxiosApi';
 import { TransContext } from './TransactionContext';
 export const AddContext = createContext();
 
 
 const AddDataContext = ({children}) => {
-    const {fetchApiData} = React.useContext(TransContext)
+    const {fetchApiData} = useContext(TransContext)
 
     const postApi = async (post) => {
         const params = {

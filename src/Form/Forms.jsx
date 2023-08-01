@@ -11,9 +11,10 @@ import {
 import * as React from "react";
 import { CatContext } from "../context/CategoryContext";
 import { AddContext } from "../context/AddDataContext";
+import { updateTransaction } from "../Api/Transactions.api";
 import { TransContext } from "../context/TransactionContext";
 
-const initState = {
+let initState = {  //عملنا انيشيل ستيت عشان تكون في داتا اوليه .. يعني ممكن نقيمها ونحط اوبجكت في الستيت وخلص بس لا خلي انيشيل داتا افضل
   title: "",
   amount: "",
   type: "income",
@@ -21,12 +22,17 @@ const initState = {
   date: "",
 };
 
-const Forms = () => {
+const Forms = ({eleData}) => {
   // start
   const [value, setValue] = React.useState(initState);
   const { data, loading, error } = React.useContext(CatContext);
 
   const { postApi } = React.useContext(AddContext);
+  const { fetchApiData } = React.useContext(TransContext)
+
+  if(eleData) {
+    initState = {...eleData}
+  }
 
   function handleChange(e) {
     setValue((d) => {
@@ -37,9 +43,14 @@ const Forms = () => {
     });
   }
 
-
-  function handleClick() {
-    postApi(value);
+  console.log(value);
+    const handleClick = async () => {
+    if(eleData) {
+      await updateTransaction(eleData.id, value)
+      fetchApiData()
+    }else {
+      postApi(value);
+    }
   }
 
   return (
@@ -56,7 +67,8 @@ const Forms = () => {
           marginBottom: "15px",
         }}
       >
-        Add New Budget
+       {eleData ? 'Edit' : ''} Add New Budget
+        
       </Typography>
 
       <Box sx={{ display: "flex", flexDirection: "column" }}>

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Forms from '../Form/Forms';
-
+import EditIcon from '@mui/icons-material/Edit';
 
 const style = {
   position: 'absolute',
@@ -17,26 +17,28 @@ const style = {
   p: 4,
 };
 
- function Buttons() {
+ function Edit({eleData}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button variant="contained" onClick={handleOpen} sx={{bgcolor:'#714fda'}}>+</Button>
+      <Button className='tareq' variant="contained" onClick={handleOpen} sx={{bgcolor:'red'}}><EditIcon /></Button>   
+
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-      >
+    >
         <Box sx={style}>
-          <Forms/>
+          <Forms eleData={eleData} />
         </Box>
       </Modal>
     </div>
   );
 }
 
-export default Buttons
+export default Edit
+

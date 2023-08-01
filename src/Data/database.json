@@ -1,84 +1,36 @@
 {
   "transactions": [
     {
-      "id": 3,
-      "title": "Project x",
-      "amount": 900,
-      "type": "income",
-      "category": "2",
-      "date": "2022-01-22"
-    },
-    {
-      "id": 4,
-      "title": "Rent",
-      "amount": 1000,
-      "type": "expanse",
-      "category": "3",
-      "date": "2021-10-13"
-    },
-    {
-      "id": 7,
-      "title": "test 2",
-      "amount": "40000",
-      "type": "income",
-      "category": "5",
-      "date": "2022-10-18"
-    },
-    {
-      "title": "test",
-      "amount": "500",
-      "type": "income",
-      "category": "7",
-      "date": "2022-10-21",
-      "id": 11
-    },
-    {
-      "title": "12",
-      "amount": "12",
-      "type": "income",
-      "category": 7,
-      "date": "2112-12-21",
-      "id": 12
-    },
-    {
-      "title": "r",
-      "amount": "1",
-      "type": "income",
-      "category": 3,
-      "date": "1111-12-12",
-      "id": 13
-    },
-    {
-      "title": "qwda",
-      "amount": "12",
-      "type": "income",
-      "category": 3,
-      "date": "1212-12-21",
-      "id": 14
-    },
-    {
-      "title": "radiras",
-      "amount": "12",
-      "type": "income",
-      "category": 1,
-      "date": "0212-12-21",
-      "id": 15
-    },
-    {
-      "title": "12",
+      "title": "tareq1",
       "amount": "12",
       "type": "income",
       "category": 4,
-      "date": "12212-12-21",
-      "id": 16
+      "date": "2112-12-21",
+      "id": 2
     },
     {
-      "title": "medooooooo",
+      "title": "1asasd1",
       "amount": "12",
       "type": "income",
-      "category": 5,
-      "date": "1212-12-01",
-      "id": 17
+      "category": 4,
+      "date": "2112-12-21",
+      "id": 3
+    },
+    {
+      "title": "gatar",
+      "amount": "12",
+      "type": "income",
+      "category": 4,
+      "date": "2112-12-21",
+      "id": 4
+    },
+    {
+      "title": "12",
+      "amount": "212",
+      "type": "income",
+      "category": 8,
+      "date": "1212-12-12",
+      "id": 5
     }
   ],
   "categories": [

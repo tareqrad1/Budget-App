@@ -4,6 +4,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import React, { useContext, useMemo } from 'react'
 import { TransContext } from '../../../context/TransactionContext';
 import Forms from '../../../Form/Forms';
+import Buttons from '../../../Ui/Buttons';
+import Edit from '../../../Ui/Edit';
 
 
 const SingleTrans = ({eleData, data}) => {
@@ -17,7 +19,6 @@ const SingleTrans = ({eleData, data}) => {
       return ''
     }
   })
-
   return (
     <Box className='lists' maxWidth="lg" sx={{mt:'10px', display:'flex', justifyContent:'space-between', alignItems:'center', p:'20px'}}>
       <Box sx={{display:'flex', alignItems:'center', gap:'20px'}}>
@@ -32,12 +33,13 @@ const SingleTrans = ({eleData, data}) => {
       </Box>
       </Box>
       <Box>
-        <IconButton onClick={() => <Forms />}>
-            <EditIcon sx={{color:'#fff', mr:'1px', bgcolor:'#714fda',borderRadius:'50%', width:'30px', height:30}} />
-        </IconButton>
+        
+        {/* buttons */}
+        <Edit eleData={eleData} />
         <IconButton onClick={() => deleteApiData(eleData.id)}>
             <DeleteIcon sx={{color:'#fff', bgcolor:'#b22b6a', borderRadius:'50%', width:'30px', height:30}} />
         </IconButton>
+        
       </Box>
     </Box>
   )
