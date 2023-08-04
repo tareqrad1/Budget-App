@@ -5,15 +5,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { CatContext } from "../../../context/CategoryContext";
+import { TransContext } from '../../../context/TransactionContext';
+
+
 function Selects(props) {
-  const [age, setAge] = React.useState('');
   const {data} = React.useContext(CatContext)
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
-  console.log(age);
 
   return (
     <Box sx={{ minWidth: 120, textAlign:'center', bgcolor:'#454747', outline:'none' }}>
@@ -22,13 +18,12 @@ function Selects(props) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          name='category'
           label="Age"
-          onChange={handleChange}
         >
           {data.map((ele) => {
             return (
-              <MenuItem key={ele.id} value={ele.name}>{ele.name}</MenuItem>
+              <MenuItem key={ele.id}>{ele.name}</MenuItem>
             )
           })}
         </Select>

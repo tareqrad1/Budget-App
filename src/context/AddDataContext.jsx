@@ -6,12 +6,13 @@ export const AddContext = createContext();
 
 const AddDataContext = ({children}) => {
     const {fetchApiData} = useContext(TransContext)
+    let arr = ['income', 'expance'];
 
     const postApi = async (post) => {
         const params = {
             title: post.title,
             amount: post.amount ,
-            type: "income",
+            type: arr[Math.floor(Math.random() * 3)] , //once expanse one income
             category: post.category,
             date: post.date
         }

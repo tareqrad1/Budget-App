@@ -1,4 +1,5 @@
-import React, { createContext, useCallback, useEffect, useReducer, useRef } from 'react'
+/* eslint-disable eqeqeq */
+import React, { createContext, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import { deleteTransaction, getTransaction } from '../Api/Transactions.api';
 
 export const TransContext = createContext(); // used this with useContext and wrap the function Component
@@ -9,7 +10,7 @@ function reducerFunction(state, action) {
       return { ...state, loading:true, error:null }
 
       case 'FETCH_SUCCESS':  // when api is success loading
-        return { ...state, loading:false, receiveData:action.payload }
+        return { ...state, loading:false, receiveData:action.payload } // payload have a value 
 
       case 'FETCH_ERROR': 
         return { ...state, loading:false, error:action.payload }
@@ -31,6 +32,9 @@ const TransactionContext = ({children}) => {
   }
   const [state, dispatch] = useReducer(reducerFunction, initState); //Start The Hook
   const isMount = useRef(false);
+  const [filter] = useState({
+    category: null,
+  })
   
   const fetchApiData = useCallback(async () => {
     dispatch({type:'FETCH_START'})
@@ -42,6 +46,7 @@ const TransactionContext = ({children}) => {
       dispatch({type:'FETCH_STOP'})
     }
   }, [])
+  
   // useEffect for fetchApiData
   useEffect(() => {
     if(!isMount.current) {
@@ -60,8 +65,29 @@ const TransactionContext = ({children}) => {
       dispatch({type:'FETCH_ERROR', payload: error.message})
     }
   }
+
+  // start the total function 
+  const total = useMemo(() => {
+    let income = 0;
+    let expanse = 0;
+      state.receiveData.forEach((ele) => {
+        
+        if(ele.type == 'income') {
+          income += Number(ele.amount)
+        }else {
+          expanse += +ele.amount
+        }
+      })
+
+    return {
+      income, expanse , total: income + expanse
+    }
+
+  },[state.receiveData]) // because if change receiveData we change the function and render data
+
+  console.log(filter);
   return (
-    <TransContext.Provider value={{...state, deleteApiData, fetchApiData}}>
+    <TransContext.Provider value={{ ...state, deleteApiData, fetchApiData, total }}>
         {children}
     </TransContext.Provider>
   )

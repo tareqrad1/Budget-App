@@ -1,9 +1,21 @@
-import React from 'react'
+import * as React from 'react';
+import { PieChart } from '@mui/x-charts/PieChart';
+import { TransContext } from '../../../context/TransactionContext';
 
-const ContinuousSlider = () => {
+export default function ContinuousSlider() {
+  const {total} = React.useContext(TransContext);
   return (
-    <h1 style={{color:'white'}}>SOON2...</h1>
-  )
+    <PieChart
+      series={[
+        {
+          data: [
+            { id: 0, value: total.income, label: 'Income' },
+            { id: 2, value: total.total, label: 'Total' },
+          ],
+        },
+      ]}
+      width={400}
+      height={200}
+    />
+  );
 }
-
-export default ContinuousSlider

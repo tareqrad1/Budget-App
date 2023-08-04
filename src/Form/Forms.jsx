@@ -33,6 +33,7 @@ const Forms = ({eleData}) => {
   if(eleData) {
     initState = {...eleData}
   }
+  // console.log(initState);
 
   function handleChange(e) {
     setValue((d) => {
@@ -47,7 +48,7 @@ const Forms = ({eleData}) => {
     const handleClick = async () => {
     if(eleData) {
       await updateTransaction(eleData.id, value)
-      fetchApiData()
+      fetchApiData() //عشان يعمل ريندر للداتا
     }else {
       postApi(value);
     }
@@ -67,7 +68,7 @@ const Forms = ({eleData}) => {
           marginBottom: "15px",
         }}
       >
-       {eleData ? 'Edit' : ''} Add New Budget
+      {eleData ? 'Edit' : ''} Add New Budget
         
       </Typography>
 

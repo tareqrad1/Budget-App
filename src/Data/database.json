@@ -1,36 +1,52 @@
 {
   "transactions": [
     {
-      "title": "tareq1",
+      "title": "pizza",
+      "amount": "20",
+      "type": "income",
+      "category": 6,
+      "date": "2003-11-15",
+      "id": 1
+    },
+    {
+      "title": "salat",
       "amount": "12",
       "type": "income",
-      "category": 4,
-      "date": "2112-12-21",
+      "category": 3,
+      "date": "0021-12-11",
       "id": 2
     },
     {
-      "title": "1asasd1",
-      "amount": "12",
-      "type": "income",
-      "category": 4,
-      "date": "2112-12-21",
+      "title": "meet",
+      "amount": "200",
+      "type": "expance",
+      "category": 3,
+      "date": "0021-02-11",
       "id": 3
     },
     {
-      "title": "gatar",
-      "amount": "12",
-      "type": "income",
-      "category": 4,
-      "date": "2112-12-21",
+      "title": "pizza big",
+      "amount": "121",
+      "type": "expance",
+      "category": 5,
+      "date": "1212-12-21",
       "id": 4
     },
     {
-      "title": "12",
-      "amount": "212",
+      "title": "cheken",
+      "amount": "211",
       "type": "income",
-      "category": 8,
-      "date": "1212-12-12",
+      "category": 4,
+      "date": "1212-12-21",
       "id": 5
+    },
+    {
+      "title": "salat big ",
+      "amount": "13",
+      "type": "expance",
+      "category": 4,
+      "date": "2013-12-22",
+      "id": 6
     }
   ],
   "categories": [
@@ -61,10 +77,6 @@
     {
       "id": 7,
       "name": "Freelance"
-    },
-    {
-      "id": 8,
-      "name": "Business"
     }
   ]
 }

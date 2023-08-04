@@ -8,9 +8,7 @@ const TransHeader = () => {
     <Box sx={{display:'flex', justifyContent:'space-between',alignItems:'center', flexWrap:'wrap', color:'white', mb:'40px'}}>
         <Typography variant="h1" sx={{fontWeight:'bold', fontSize:'24px'}}>Recent Transactions</Typography>
         <Box sx={{display:'flex', justifyContent:'space-between',alignItems:'center', gap:'10px'}}>
-            {/* <Selects name='sorted by' optionOne= 'data' optionTwo= 'amount' /> */}
             <Selects name= 'categories' />
-            {/* <Selects name= 'all' optionOne ='all' optionTwo='all this' /> */}
         </Box>
     </Box>
   )

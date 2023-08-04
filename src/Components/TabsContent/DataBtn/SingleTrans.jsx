@@ -13,7 +13,7 @@ const SingleTrans = ({eleData, data}) => {
 
   const currentCat = useMemo(() => {
     const cat = data.find(c => c.id == eleData.category)
-    if(cat && cat.name) {
+    if(cat) {
       return cat.name
     }else {
       return ''
